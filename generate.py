@@ -1,7 +1,8 @@
 from pathlib import Path
 
 LINE = 'Где мои 128 гб ддр1\n'.encode('utf-8')
-COUNT = 1_000_000
+TARGET_BYTES = 99_000_000
+COUNT = (TARGET_BYTES + len(LINE) - 1) // len(LINE)
 CHUNK_LINES = 4096
 path = Path(__file__).with_name('ddr1.txt')
 with path.open('wb') as f:
